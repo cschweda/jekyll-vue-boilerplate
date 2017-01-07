@@ -14,6 +14,6 @@ function renderAppInElement(el) {
   const props = Object.assign({}, el.dataset);
 
   ReactDOM.render(<App {...props} />, el);
-}
+} 
 
 document.querySelectorAll('.__react-root').forEach(renderAppInElement)
