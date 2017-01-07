@@ -12,10 +12,11 @@ module.exports = {
   devtool: 'source-map',
   module: {
     loaders: [
+      { test: /tether\.js$/, loader: "expose-loader?Tether" },
       {
         test: /\.js?$/,
         exclude: /(node_modules)/,
-        loader: 'babel', // 'babel-loader' is also a legal name to reference
+        loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
         query: {
           presets: ['react', 'es2015']
         }
@@ -27,6 +28,12 @@ module.exports = {
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
     }
-  })
+  }),
+  new webpack.ProvidePlugin({
+           $: "jquery",
+           jQuery: "jquery",
+           "window.jQuery": "jquery",
+           "window.Tether": 'tether'
+       })
 ],
 };

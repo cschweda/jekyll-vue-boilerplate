@@ -22,12 +22,16 @@
 		"build-serve": "webpack -p && jekyll build && npm run cleancss && npm run minifyhtml && serve ./public -o",
 		"minifyhtml": "html-minifier --file-ext html --input-dir ./public --output-dir ./public",
 		"cleancss": "cleancss -o  public/css/main.css public/css/main.css --source-map --debug --root ./"
-
 	},
 	"dependencies": {
+		"bootstrap": "^4.0.0-alpha.6",
 		"concurrently": "^3.1.0",
+		"expose-loader": "^0.7.1",
 		"html-minifier": "^3.2.3",
 		"http-server": "^0.9.0",
+		"jquery": "^3.1.1",
+		"lodash": "^4.17.4",
+		"tether": "^1.4.0",
 		"webpack": "^1.14.0",
 		"webpack-dev-server": "^1.16.2"
 	},
@@ -37,9 +41,11 @@
 		"babel-preset-es2015": "^6.6.0",
 		"babel-preset-react": "^6.5.0",
 		"clean-css": "^3.4.23",
+		"extract-text-webpack-plugin": "^2.0.0-beta.4",
 		"react": "^15.0.2",
 		"react-addons-update": "^15.0.2",
 		"react-dom": "^15.0.2",
-		"rimraf": "^2.5.4"
+		"rimraf": "^2.5.4",
+		"webpack": "^2.1.0-beta.25"
 	}
 }
