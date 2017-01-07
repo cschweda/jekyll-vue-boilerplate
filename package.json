@@ -15,7 +15,11 @@
 		"type": "git"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"cleancss": "cleancss -o public/css/main.css public/css/main.css"
+	},
+	"dependencies": {
+		"clean-css": "^3.4.23"
 	},
 	"devDependencies": {
 		"babel-core": "^6.7.7",
