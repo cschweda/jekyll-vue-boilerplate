@@ -1,16 +1,50 @@
-## Jekyll, Webpack, React v2
-
-**INSTALL**
-
-```
-npm install
-```
-
-**DEV**
-
-```
-webpack -w
-jekyll serve
-```
-
-Special thanks to: http://stackoverflow.com/questions/31933359/using-react-in-a-multi-page-app for info on using React in a multipage app.
+{
+	"keywords": [],
+	"bugs": {},
+	"licenses": [],
+	"author": {},
+	"contributors": [],
+	"maintainers": [],
+	"files": [],
+	"man": [],
+	"directories": {},
+	"repository": {},
+	"scripts": {},
+	"config": {},
+	"dependencies": {},
+	"devDependencies": {},
+	"bundleDependencies": [],
+	"bundledDependencies": [],
+	"optionalDependencies": {},
+	"peerDependencies": {},
+	"engines": {},
+	"os": [],
+	"cpu": [],
+	"publishConfig": {},
+	"dist": {},
+	"jspm": {
+		"keywords": [],
+		"bugs": {},
+		"licenses": [],
+		"author": {},
+		"contributors": [],
+		"maintainers": [],
+		"files": [],
+		"man": [],
+		"directories": {},
+		"repository": {},
+		"scripts": {},
+		"config": {},
+		"dependencies": {},
+		"devDependencies": {},
+		"bundleDependencies": [],
+		"bundledDependencies": [],
+		"optionalDependencies": {},
+		"peerDependencies": {},
+		"engines": {},
+		"os": [],
+		"cpu": [],
+		"publishConfig": {},
+		"dist": {}
+	}
+}
