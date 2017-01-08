@@ -3,8 +3,8 @@ import 'jquery';
 import 'bootstrap';
 // import 'lodash';
 
-import 'bootstrap/scss/bootstrap.scss'
-// import 'font-awesome/css/font-awesome.css'
+import '../src/styles/base.scss'
+import 'font-awesome/scss/font-awesome.scss'
 
 
 import Vue from 'vue';

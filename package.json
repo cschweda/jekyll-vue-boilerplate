@@ -17,11 +17,12 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "concurrently \"cross-env NODE_ENV=development webpack -w\" \"jekyll serve -w --incremental\"",
-		"build": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean",
-		"build-now": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && now ./public",
-		"build-serve": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && serve ./public -o",
+		"build": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp",
+		"build-now": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && now ./public",
+		"build-serve": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && serve ./public --port 4000 -o",
 		"cleancss": "cleancss -o  public/css/main.css public/css/main.css --source-map --debug --root ./",
-		"htmlclean": "htmlclean public -o public"
+		"htmlclean": "htmlclean public -o public",
+		"cleantemp": "rimraf ./public/styles"
 	},
 	"dependencies": {
 		"bootstrap": "^4.0.0-alpha.6",
