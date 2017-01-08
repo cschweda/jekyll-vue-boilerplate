@@ -11,8 +11,21 @@ const APPS = {
   Goodbye
 };
 
-if (document.querySelectorAll('.__vue-root')) console.log('yes')
-let v = new Vue({
-  el: '#Hello',
-  render: h => h(Goodbye)
-})
+function renderAppInElement(el) {
+  var App = APPS[el.id];
+  if (!App) return;
+
+  // const props = Object.assign({}, el.dataset);
+  // console.log('Props: ',props)
+
+  let vm = new Vue({
+    el,
+    render: h => h(App)
+  })
+
+
+}
+
+
+
+document.querySelectorAll('.__vue-root').forEach(renderAppInElement)
