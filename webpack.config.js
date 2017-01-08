@@ -27,10 +27,10 @@ module.exports = {
                 test: /\.css$/,
                 loader: "style-loader!css-loader"
             },
-            {
-                test: /\.less$/,
-                loader: "style-loader!css-loader!less-loader"
-            },
+            // {
+            //     test: /\.less$/,
+            //     loader: "style-loader!css-loader!less-loader"
+            // },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "url-loader?limit=10000&mimetype=application/font-woff"
@@ -57,7 +57,7 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin("styles.css"),
-        
+
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
@@ -71,6 +71,10 @@ if (process.env.NODE_ENV === 'production') {
     module.exports.devtool = '#source-map'
         // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.optimize.OccurrenceOrderPlugin(),
+
+        new webpack.optimize.DedupePlugin(),
+
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"'
@@ -78,6 +82,7 @@ if (process.env.NODE_ENV === 'production') {
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
+            debug: true,
             compress: {
                 warnings: false
             }
