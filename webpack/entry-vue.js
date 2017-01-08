@@ -1,6 +1,7 @@
 import 'tether';
 import 'jquery';
 import 'bootstrap';
+// import 'font-awesome/css/font-awesome.css'
 // import 'lodash';
 
 import Vue from 'vue';
