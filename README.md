@@ -1,9 +1,11 @@
-## Jekyll, Webpack, React v2
+## Jekyll, Webpack, Vue
 
 **INSTALL**
 
 ```
 npm install
+gem install jekyll bundler
+bundle install
 ```
 
 **DEV**

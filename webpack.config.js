@@ -9,7 +9,10 @@ module.exports = {
         path: 'src/assets/',
         filename: "bundle.js"
     },
-    devtool: 'source-map',
+    devtool: 'cheap-module-source-map',
+    // performance: {
+    //     hints: false
+    // },
     module: {
         loaders: [{
                 test: /tether\.js$/,
@@ -32,14 +35,18 @@ module.exports = {
             //     test: /\.less$/,
             //     loader: "style-loader!css-loader!less-loader"
             // },
+            // {
+            //     test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            //     loader: "url-loader?limit=10000&mimetype=application/font-woff"
+            // },
+            //  {
+            //     test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            //     loader: "file-loader"
+            // },
             {
-                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "url-loader?limit=10000&mimetype=application/font-woff"
-            },
-             {
-                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "file-loader"
-            },
+                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?.*$|$)/,
+                loader: 'file-loader'
+              },
              {
                 test: /\.js$/,
                 loader: 'babel-loader',
@@ -59,18 +66,6 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin("styles.css"),
 
-      //   new purify({
-      //      basePath: __dirname,
-      //      minify: true,
-      //      paths: [
-      //          "public/*.html",
-      //          "public/**/*.html",
-      //          "public/**/**/*.html",
-      //         "public/**/**/**/*.html",
-      //         "public/**/**/**/**/*.html",
-      //      ]
-      //  }),
-
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
@@ -81,12 +76,12 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map'
+    module.exports.devtool = '#cheap-module-source-map'
         // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.optimize.OccurrenceOrderPlugin(),
 
-        new webpack.optimize.DedupePlugin(),
+        // new webpack.optimize.DedupePlugin(),
 
         new webpack.DefinePlugin({
             'process.env': {
@@ -102,6 +97,18 @@ if (process.env.NODE_ENV === 'production') {
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true
-        })
+        }),
+
+        //   new purify({
+        //      basePath: __dirname,
+        //      minify: true,
+        //      paths: [
+        //          "public/*.html",
+        //          "public/**/*.html",
+        //          "public/**/**/*.html",
+        //         "public/**/**/**/*.html",
+        //         "public/**/**/**/**/*.html",
+        //      ]
+        //  }),
     ])
 }
