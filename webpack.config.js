@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const purify = require("purifycss-webpack-plugin");
 
 module.exports = {
     entry: "./webpack/entry-vue.js",
@@ -57,6 +58,18 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin("styles.css"),
+
+        new purify({
+           basePath: __dirname,
+           minify: true,
+           paths: [
+               "public/*.html",
+               "public/**/*.html",
+               "public/**/**/*.html",
+              "public/**/**/**/*.html",
+              "public/**/**/**/**/*.html",
+           ]
+       }),
 
         new webpack.ProvidePlugin({
             $: "jquery",

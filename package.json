@@ -17,10 +17,10 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "concurrently \"cross-env NODE_ENV=development webpack -w\" \"jekyll serve -w --incremental\"",
-		"build": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp",
-		"build-now": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && now ./public",
-		"build-serve": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && serve ./public --port 4000 -o",
-		"cleancss": "cleancss -o  public/css/main.css public/css/main.css --source-map --debug --root ./",
+		"build": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && npm run cleancss ",
+		"build-now": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && npm run cleancss && now ./public",
+		"build-serve": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && npm run cleancss && serve ./public --port 4000 -o",
+		"cleancss": "cleancss -o  public/assets/styles.css public/assets/styles.css",
 		"htmlclean": "htmlclean public -o public",
 		"cleantemp": "rimraf ./public/styles"
 	},
@@ -29,6 +29,7 @@
 		"font-awesome": "^4.7.0",
 		"jquery": "^3.1.1",
 		"lodash": "^4.17.4",
+		"purifycss-webpack-plugin": "^2.0.3",
 		"style-loader": "^0.13.1",
 		"tether": "^1.4.0",
 		"url-loader": "^0.5.7"
