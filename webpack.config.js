@@ -9,15 +9,28 @@ module.exports = {
         path: 'src/assets/',
         filename: "bundle.js"
     },
-    devtool: 'cheap-module-source-map',
+    resolve: {
+
+    },
+    devtool: 'source-map',
     // performance: {
     //     hints: false
     // },
     module: {
-        loaders: [{
+        loaders: [
+            {
                 test: /tether\.js$/,
                 loader: "expose-loader?Tether"
-            }, {
+            },
+            {
+                test: /moment\.js$/,
+                loader: "expose-loader?moment"
+            },
+            {
+                test: /holder\.js$/,
+                loader: "expose-loader?Holder"
+            },
+            {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
@@ -59,12 +72,15 @@ module.exports = {
             { test: /\.scss$/, loader: ExtractTextPlugin.extract({
                fallbackLoader: "style-loader",
                loader: "css-loader!sass-loader"
-           }) }
+           })
+         }
 
         ]
     },
     plugins: [
         new ExtractTextPlugin("styles.css"),
+
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 
         new webpack.ProvidePlugin({
             $: "jquery",
@@ -76,7 +92,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#cheap-module-source-map'
+    module.exports.devtool = 'source-map'
         // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.optimize.OccurrenceOrderPlugin(),

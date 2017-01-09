@@ -22,7 +22,8 @@
     "build-serve": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && serve ./public --port 4000 -o",
     "cleancss": "cleancss -o  public/assets/styles.css public/assets/styles.css",
     "htmlclean": "htmlclean public -o public",
-    "cleantemp": "rimraf ./public/styles"
+    "cleantemp": "rimraf ./public/styles",
+    "source-map": "source-map-explorer  public/assets/bundle.js  public/assets/bundle.js.map"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
@@ -47,9 +48,11 @@
     "expose-loader": "^0.7.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "file-loader": "^0.9.0",
+    "holderjs": "^2.9.4",
     "html-minifier": "^3.2.3",
     "htmlclean": "^2.7.8",
     "http-server": "^0.9.0",
+    "moment": "^2.17.1",
     "node-sass": "^4.1.1",
     "react": "^15.0.2",
     "react-addons-update": "^15.0.2",

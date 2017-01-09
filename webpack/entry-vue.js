@@ -1,6 +1,8 @@
 import 'tether';
 import 'jquery';
 import 'bootstrap';
+import moment from "moment"
+import Holder from 'holderjs';
 // import 'lodash';
 
 import '../src/styles/base.scss'
@@ -10,10 +12,12 @@ import 'font-awesome/scss/font-awesome.scss'
 import Vue from 'vue';
 import Hello from './components/Hello.vue';
 import Goodbye from './components/Goodbye.vue';
+import Foot from './components/Footer.vue'
 
 const APPS = {
   Hello,
-  Goodbye
+  Goodbye,
+  Foot
 };
 
 function renderAppInElement(el) {
