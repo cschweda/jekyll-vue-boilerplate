@@ -59,17 +59,17 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin("styles.css"),
 
-        new purify({
-           basePath: __dirname,
-           minify: true,
-           paths: [
-               "public/*.html",
-               "public/**/*.html",
-               "public/**/**/*.html",
-              "public/**/**/**/*.html",
-              "public/**/**/**/**/*.html",
-           ]
-       }),
+      //   new purify({
+      //      basePath: __dirname,
+      //      minify: true,
+      //      paths: [
+      //          "public/*.html",
+      //          "public/**/*.html",
+      //          "public/**/**/*.html",
+      //         "public/**/**/**/*.html",
+      //         "public/**/**/**/**/*.html",
+      //      ]
+      //  }),
 
         new webpack.ProvidePlugin({
             $: "jquery",
