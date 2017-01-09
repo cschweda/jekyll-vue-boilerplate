@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const purify = require("purifycss-webpack-plugin");
+const PurifyPlugin = require('purifycss-webpack-plugin');
+const glob = require('glob');
 
 module.exports = {
     entry: "./webpack/entry-vue.js",
@@ -82,6 +83,8 @@ module.exports = {
 
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 
+
+
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
@@ -115,16 +118,11 @@ if (process.env.NODE_ENV === 'production') {
             minimize: true
         }),
 
-        //   new purify({
-        //      basePath: __dirname,
-        //      minify: true,
-        //      paths: [
-        //          "public/*.html",
-        //          "public/**/*.html",
-        //          "public/**/**/*.html",
-        //         "public/**/**/**/*.html",
-        //         "public/**/**/**/**/*.html",
-        //      ]
-        //  }),
+        // new PurifyPlugin({
+        //       // Give paths to parse for rules. These should be absolute!
+        //       paths: glob.sync('public/*.html'),
+        //     }),
+
+
     ])
 }
