@@ -11,12 +11,13 @@ import 'font-awesome/scss/font-awesome.scss'
 
 
 import Vue from 'vue';
-// import * as appBase from './components/appBase.js';
+import Base from './components/Base.vue';
 import Hello from './components/Hello.vue';
 import Goodbye from './components/Goodbye.vue';
 import Foot from './components/Footer.vue'
 
 const APPS = {
+  Base,
   Hello,
   Goodbye,
   Foot
