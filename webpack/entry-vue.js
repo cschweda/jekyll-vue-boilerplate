@@ -28,7 +28,7 @@ function renderAppInElement(el) {
   if (!App) return;
 
   const props = Object.assign({}, el.dataset);
-  let vm = new Vue({
+  new Vue ({
     el,
     render(createElem) {
       return createElem(App, {
