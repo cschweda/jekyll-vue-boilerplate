@@ -19,6 +19,7 @@
     "dev": "concurrently \"cross-env NODE_ENV=development webpack -w\" \"jekyll serve -w --incremental\"",
     "build": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp",
     "build-now": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && now ./public",
+    "build-now-dev": "cross-env NODE_ENV=development webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && now ./public",
     "build-serve": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && serve ./public --port 4000 -o",
     "build-serve-prune": "cross-env NODE_ENV=production webpack --progress && jekyll build && npm run htmlclean && npm run cleantemp && serve ./public --port 4000 -o",
     "cleancss": "cleancss -o  public/assets/styles.css public/assets/styles.css",

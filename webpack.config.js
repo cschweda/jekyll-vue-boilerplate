@@ -120,16 +120,6 @@ if (process.env.NODE_ENV === 'production') {
             minimize: true
         }),
 
-        //   new purify({
-        //      basePath: __dirname,
-        //      minify: true,
-        //      paths: [
-        //          "public/*.html",
-        //          "public/**/*.html",
-        //          "public/**/**/*.html",
-        //         "public/**/**/**/*.html",
-        //         "public/**/**/**/**/*.html",
-        //      ]
-        //  }),
+        
     ])
 }
