@@ -2,7 +2,7 @@
   <footer>
 
     <div class="text-center">FOOTER HERE (c) {{getYear()}}</div>
-    
+
 
 
   </footer>
@@ -38,8 +38,8 @@ export default {
 
 </script>
 
-<style scoped>
+<style scoped scss>
 
-footer {padding: 10px 10px; font-size: 12px; color: #ccc; }
+footer {padding: 10px 10px; font-size: 12px; color: red; }
 
 </style>

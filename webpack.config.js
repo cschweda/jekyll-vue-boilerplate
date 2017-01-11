@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var MyPlugin = require('./webpack-module.js');
 // const purify = require("purifycss-webpack-plugin");
 // const glob = require('glob');
 
@@ -40,9 +41,16 @@ module.exports = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        'scss': 'vue-style-loader!css-loader!sass-loader',
-                        'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-                    }
+                        css: ExtractTextPlugin.extract({
+                                loader: 'css-loader',
+                                fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+                        }),
+                        scss: ExtractTextPlugin.extract({
+                                loader: 'css-loader!sass-loader',
+                                fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+                        }),
+
+          }
                 }
             },
             {
@@ -85,6 +93,8 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin("styles.css"),
 
+        new MyPlugin({options: true}),
+
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 
         new webpack.ProvidePlugin({
@@ -102,7 +112,7 @@ if (process.env.NODE_ENV === 'production') {
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.optimize.OccurrenceOrderPlugin(),
 
-        // new webpack.optimize.DedupePlugin(),
+
 
         new webpack.DefinePlugin({
             'process.env': {
@@ -120,6 +130,6 @@ if (process.env.NODE_ENV === 'production') {
             minimize: true
         }),
 
-        
+
     ])
 }
