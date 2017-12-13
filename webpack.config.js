@@ -5,10 +5,12 @@ var MyPlugin = require('./webpack-module.js');
 // const purify = require("purifycss-webpack-plugin");
 // const glob = require('glob');
 
+
 module.exports = {
     entry: "./webpack/entry-vue.js",
     output: {
-        path: 'src/assets/',
+
+        path: path.join(__dirname, './src/assets/'),
         filename: "bundle.js"
     },
     resolve: {
@@ -19,8 +21,7 @@ module.exports = {
     //     hints: false
     // },
     module: {
-        loaders: [
-            {
+        loaders: [{
                 test: /tether\.js$/,
                 loader: "expose-loader?Tether"
             },
@@ -42,15 +43,15 @@ module.exports = {
                 options: {
                     loaders: {
                         css: ExtractTextPlugin.extract({
-                                loader: 'css-loader',
-                                fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+                            loader: 'css-loader',
+                            fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
                         }),
                         scss: ExtractTextPlugin.extract({
-                                loader: 'css-loader!sass-loader',
-                                fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+                            loader: 'css-loader!sass-loader',
+                            fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
                         }),
 
-          }
+                    }
                 }
             },
             {
@@ -72,8 +73,8 @@ module.exports = {
             {
                 test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?.*$|$)/,
                 loader: 'file-loader'
-              },
-             {
+            },
+            {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
@@ -82,18 +83,20 @@ module.exports = {
             //     test: /\.scss$/,
             //     loaders: ["style-loader", "css-loader", "sass-loader"]
             // },
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract({
-               fallbackLoader: "style-loader",
-               loader: "css-loader!sass-loader"
-           })
-         }
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract({
+                    fallbackLoader: "style-loader",
+                    loader: "css-loader!sass-loader"
+                })
+            }
 
         ]
     },
     plugins: [
         new ExtractTextPlugin("styles.css"),
 
-        new MyPlugin({options: true}),
+        new MyPlugin({ options: true }),
 
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 
