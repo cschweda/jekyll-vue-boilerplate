@@ -30,7 +30,7 @@ sass:
 markdown: kramdown
 source: src
 destination: dist
-theme: minima
+# theme: minima
 plugins:
   - jekyll-feed
 
