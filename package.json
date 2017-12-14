@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "./node_modules/.bin/concurrently \"cross-env NODE_ENV=development ./node_modules/.bin/webpack -w\" \"bundle exec jekyll serve -w --incremental\"",
         "htmlclean": "./node_modules/.bin/htmlclean dist -o dist",
-        "build": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --progress -p && jekyll build && npm run htmlclean",
+        "build": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --progress -p && bundle exec jekyll build && npm run htmlclean",
         "serve": "./node_modules/.bin/serve ./dist -p 4000",
         "build:serve": "yarn run build && yarn run serve"
     },
