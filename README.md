@@ -19,12 +19,12 @@ yarn run dev
 ```
 yarn run build
 ```
+(Site build is in ```/dist``` folder)
 
 **SERVE**
 ```
 jekyll serve
 ```
-(Site build is in ```/dist``` folder)
 
 
 ### Special thanks to:
