@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'Hello',
+  name: 'My-Footer',
   data () {
     return {
       msg: 'This is footer text from Vue'

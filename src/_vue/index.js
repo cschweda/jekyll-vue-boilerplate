@@ -5,14 +5,16 @@ import jQuery from 'jquery';
 window.$ = window.JQuery = jQuery;
 import Vue from 'vue';
 import Hello from './components/Hello.vue';
-import Footer from './components/Footer.vue';
+import MyFooter from './components/Footer.vue';
 
 import '../_sass/app.scss'
 
 const APPS = {
   Hello,
-  Footer
+  MyFooter
 };
+
+// Vue.config.devtools = true
 
 function renderAppInElement(el) {
   let App = APPS[el.id];

@@ -26,6 +26,11 @@ yarn run build
 yarn run serve
 ```
 
+**BUILD & SERVE**
+```
+yarn run build:serve
+```
+
 ### Demo:
 https://jekyllvue.metaincognita.com/
 
