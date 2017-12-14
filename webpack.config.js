@@ -6,7 +6,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
 module.exports = {
-    entry: "./webpack/index.js",
+    entry: "./src/_vue/index.js",
     output: {
         path: path.join(__dirname, './src/assets/'),
         filename: "bundle.js"
@@ -72,7 +72,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin("webpack.css"),
+        new ExtractTextPlugin("vue.css"),
 
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 
