@@ -23,7 +23,7 @@ yarn run build
 
 **SERVE**
 ```
-jekyll serve
+yarn run serve
 ```
 
 ### Demo:

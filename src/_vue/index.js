@@ -7,7 +7,7 @@ import Vue from 'vue';
 import Hello from './components/Hello.vue';
 import Footer from './components/Footer.vue';
 
-import '../_sass/minima.scss'
+import '../_sass/app.scss'
 
 const APPS = {
   Hello,
