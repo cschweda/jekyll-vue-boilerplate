@@ -1,15 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-var MyPlugin = require('./webpack-module.js');
-// const purify = require("purifycss-webpack-plugin");
-// const glob = require('glob');
+
+
 
 
 module.exports = {
-    entry: "./webpack/entry-vue.js",
+    entry: "./webpack/index.js",
     output: {
-
         path: path.join(__dirname, './src/assets/'),
         filename: "bundle.js"
     },
@@ -21,34 +19,25 @@ module.exports = {
     //     hints: false
     // },
     module: {
-        loaders: [{
-                test: /tether\.js$/,
-                loader: "expose-loader?Tether"
-            },
-            {
-                test: /appBase\.js$/,
-                loader: "expose-loader?appBase"
-            },
-            {
-                test: /moment\.js$/,
-                loader: "expose-loader?moment"
-            },
-            {
-                test: /holder\.js$/,
-                loader: "expose-loader?Holder"
-            },
+        loaders: [
+
+            // {
+            //     test: /moment\.js$/,
+            //     loader: "expose-loader?moment"
+            // },
+
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
                     loaders: {
                         css: ExtractTextPlugin.extract({
-                            loader: 'css-loader',
-                            fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+                            use: 'css-loader',
+                            fallback: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
                         }),
                         scss: ExtractTextPlugin.extract({
-                            loader: 'css-loader!sass-loader',
-                            fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+                            use: 'css-loader!sass-loader',
+                            fallback: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
                         }),
 
                     }
@@ -58,18 +47,7 @@ module.exports = {
                 test: /\.css$/,
                 loader: "style-loader!css-loader"
             },
-            // {
-            //     test: /\.less$/,
-            //     loader: "style-loader!css-loader!less-loader"
-            // },
-            // {
-            //     test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            //     loader: "url-loader?limit=10000&mimetype=application/font-woff"
-            // },
-            //  {
-            //     test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            //     loader: "file-loader"
-            // },
+
             {
                 test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?.*$|$)/,
                 loader: 'file-loader'
@@ -86,19 +64,18 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract({
-                    fallbackLoader: "style-loader",
-                    loader: "css-loader!sass-loader"
+                    fallback: "style-loader",
+                    use: "css-loader!sass-loader"
                 })
             }
 
         ]
     },
     plugins: [
-        new ExtractTextPlugin("styles.css"),
-
-        new MyPlugin({ options: true }),
+        new ExtractTextPlugin("webpack.css"),
 
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+
 
         new webpack.ProvidePlugin({
             $: "jquery",

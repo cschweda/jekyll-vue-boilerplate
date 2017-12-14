@@ -3,7 +3,7 @@
 **INSTALL**
 
 ```
-npm install
+yarn install
 gem install jekyll bundler
 bundle install
 ```
@@ -11,19 +11,23 @@ bundle install
 **DEV**
 
 ```
-npm run dev
+yarn run dev
 ```
 
 **BUILD**
 
 ```
-npm run build
+yarn run build
 ```
 
-**BUILD & DEPLOY TO NOW**
-
+**SERVE**
 ```
-npm run build-deploy
+jekyll serve
 ```
+(Site build is in ```/dist``` folder)
 
-Special thanks to: http://stackoverflow.com/questions/31933359/using-react-in-a-multi-page-app for info on using React in a multipage app.
+
+### Special thanks to:
+
+- http://stackoverflow.com/questions/31933359/using-react-in-a-multi-page-app
+- https://www.jonathan-petitcolas.com/2016/08/12/plugging-webpack-to-jekyll-powered-pages.html

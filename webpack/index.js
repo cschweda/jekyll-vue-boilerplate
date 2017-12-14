@@ -1,26 +1,16 @@
-import 'tether';
-import 'jquery';
-import 'bootstrap';
-import 'animate.css';
-import moment from "moment"
-import Holder from 'holderjs';
-// import 'lodash';
 
-import '../src/styles/base.scss'
-import 'font-awesome/scss/font-awesome.scss'
-
-
+// import moment from "moment"
+import 'lodash';
+import jQuery from 'jquery';
+window.$ = window.JQuery = jQuery;
 import Vue from 'vue';
-import Base from './components/Base.vue';
 import Hello from './components/Hello.vue';
-import Goodbye from './components/Goodbye.vue';
-import Foot from './components/Footer.vue'
+import Footer from './components/Footer.vue';
+
 
 const APPS = {
-  Base,
   Hello,
-  Goodbye,
-  Foot
+  Footer
 };
 
 function renderAppInElement(el) {

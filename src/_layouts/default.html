@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
   {% include head.html %}
 
@@ -7,17 +7,16 @@
 
     {% include header.html %}
 
-
-    <section class="page">
-
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
         {{ content }}
-
-
-    </section>
+      </div>
+    </main>
 
     {% include footer.html %}
-    
+
     <script type="text/javascript" src="/assets/bundle.js?{{site.time}}" charset="utf-8"></script>
+
   </body>
 
 </html>
