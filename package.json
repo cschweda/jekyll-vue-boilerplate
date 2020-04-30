@@ -26,7 +26,7 @@
         "extract-text-webpack-plugin": "^3.0.2",
         "file-loader": "^1.1.5",
         "htmlclean-cli": "^1.0.6",
-        "jquery": "^3.2.1",
+        "jquery": "^3.5.0",
         "lodash": "^4.17.4",
         "moment": "^2.19.4",
         "node-sass": "^4.7.2",
