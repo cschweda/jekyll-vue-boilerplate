@@ -27,7 +27,7 @@
         "file-loader": "^1.1.5",
         "htmlclean-cli": "^1.0.6",
         "jquery": "^3.2.1",
-        "lodash": "^4.17.4",
+        "lodash": "^4.17.21",
         "moment": "^2.19.4",
         "node-sass": "^4.7.2",
         "sass-loader": "^6.0.6",
